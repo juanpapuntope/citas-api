@@ -9,6 +9,5 @@
     "8080": { "label": "citas-api (Swagger)", "onAutoForward": "openBrowser" }
   },
   "postCreateCommand": "mvn -B -q -DskipTests package",
-  "postAttachCommand": ["bash", "-c",
-    "if test ${#DB_URL} -gt 0; then P=dev; else P=demo; fi; echo Perfil: $P; mvn -B spring-boot:run -Dspring-boot.run.profiles=$P"]
+  "postAttachCommand": "bash -c 'P=${DB_URL:+dev}; P=${P:-demo}; echo Perfil: $P; mvn -B spring-boot:run -Dspring-boot.run.profiles=$P'"
 }

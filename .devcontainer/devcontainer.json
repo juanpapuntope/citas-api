@@ -4,10 +4,13 @@
   "features": {
     "ghcr.io/devcontainers/features/java:1": { "version": "none", "installMaven": "true" }
   },
+  "customizations": {
+    "vscode": { "extensions": ["vscjava.vscode-java-pack", "humao.rest-client"] }
+  },
   "forwardPorts": [8080],
   "portsAttributes": {
-    "8080": { "label": "citas-api (Swagger)", "onAutoForward": "openBrowser" }
+    "8080": { "label": "citas-api", "onAutoForward": "openBrowser" }
   },
   "postCreateCommand": "mvn -B -q -DskipTests package",
-  "postAttachCommand": "bash -c 'P=${DB_URL:+dev}; P=${P:-demo}; echo Perfil: $P; mvn -B spring-boot:run -Dspring-boot.run.profiles=$P'"
+  "postAttachCommand": "mvn -B spring-boot:run -Dspring-boot.run.profiles=demo"
 }

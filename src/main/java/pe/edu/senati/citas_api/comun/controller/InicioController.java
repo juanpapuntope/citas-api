@@ -1,15 +1,26 @@
 package pe.edu.senati.citas_api.comun.controller;
 
-import org.springframework.stereotype.Controller;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.springframework.web.bind.annotation.GetMapping;
-import io.swagger.v3.oas.annotations.Hidden;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-@Hidden
-@Controller
+/** La raíz "/" muestra en JSON la URL de cada web service. */
+@RestController
 public class InicioController {
 
     @GetMapping("/")
-    public String inicio() {
-        return "redirect:/swagger-ui.html";
+    public Map<String, String> inicio() {
+        // http://localhost:8080 en la PC, https://...-8080.app.github.dev en Codespaces
+        String base = ServletUriComponentsBuilder.fromCurrentContextPath().toUriString();
+
+        Map<String, String> urls = new LinkedHashMap<>();
+        urls.put("hola", base + "/api/hola");
+        urls.put("especialidades", base + "/api/especialidades");
+        urls.put("especialidad 1", base + "/api/especialidades/1");
+        urls.put("buscar especialidades", base + "/api/especialidades/buscar?nombre=terapia");
+        // Cada equipo agrega aquí las URLs de su módulo (pacientes, terapeutas...)
+        return urls;
     }
 }

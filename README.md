@@ -19,6 +19,14 @@ Web services del catálogo de un centro de terapias (Spring Boot · Java 21 · b
 | Etapa | Método | Ruta |
 |---|---|---|
 | main | GET | `/` |
+| rama-1-login-servicios | POST | `/api/auth/login` |
+| rama-1-login-servicios | GET | `/api/servicios` |
+| rama-1-login-servicios | GET | `/api/servicios/activos` |
+| rama-1-login-servicios | GET | `/api/servicios/buscar?titulo=` |
+| rama-1-login-servicios | GET | `/api/servicios/{id}` |
+| rama-1-login-servicios | POST | `/api/servicios` |
+| rama-1-login-servicios | PUT | `/api/servicios/{id}` |
+| rama-1-login-servicios | DELETE | `/api/servicios/{id}` |
 
 Pruebas: `postman/citas-api.postman_collection.json` (variable `baseUrl`).
 Usuarios de prueba: todos con la contraseña `Clave123` (ver `database/citas_db.sql`).

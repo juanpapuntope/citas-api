@@ -27,6 +27,13 @@ Web services del catálogo de un centro de terapias (Spring Boot · Java 21 · b
 | rama-1-login-servicios | POST | `/api/servicios` |
 | rama-1-login-servicios | PUT | `/api/servicios/{id}` |
 | rama-1-login-servicios | DELETE | `/api/servicios/{id}` |
+| rama-2-terapistas | GET | `/api/terapistas` |
+| rama-2-terapistas | GET | `/api/terapistas/activos` |
+| rama-2-terapistas | GET | `/api/terapistas/buscar?texto=` |
+| rama-2-terapistas | GET | `/api/terapistas/{id}` |
+| rama-2-terapistas | POST | `/api/terapistas` |
+| rama-2-terapistas | PUT | `/api/terapistas/{id}` |
+| rama-2-terapistas | DELETE | `/api/terapistas/{id}` |
 
 Pruebas: `postman/citas-api.postman_collection.json` (variable `baseUrl`).
 Usuarios de prueba: todos con la contraseña `Clave123` (ver `database/citas_db.sql`).

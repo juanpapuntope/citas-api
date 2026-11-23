@@ -1,0 +1,56 @@
+{
+  "info": {
+    "_postman_id": "f3757a36-cc0b-5ce7-b5d5-34d1ea74654b",
+    "name": "citas-api",
+    "description": "Pruebas de citas-api. Cambia baseUrl por la URL de tu Codespace para probar en la nube.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "main · proyecto base",
+      "item": [
+        {
+          "name": "Inicio: ¿está viva la API? (200)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Responde 200\", () => pm.response.to.have.status(200));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "servicioId",
+      "value": ""
+    },
+    {
+      "key": "terapistaId",
+      "value": ""
+    },
+    {
+      "key": "horarioId",
+      "value": ""
+    },
+    {
+      "key": "asignacionId",
+      "value": ""
+    }
+  ]
+}
